@@ -1,17 +1,65 @@
+@import url("https://fonts.googleapis.com/css2?family=Anton&family=Barlow:wght@400;500;700&display=swap");
+
+:root {
+  --red: #d6001c;
+  --red-bright: #ff3b4f;
+  --black: #0b0b0b;
+  --white: #ffffff;
+  --gold: #e3b551;
+  --gold-light: #fbe7a1;
+  --gold-dark: #b8862b;
+  --gold-grad: linear-gradient(135deg, #fbe7a1 0%, #e3b551 45%, #b8862b 100%);
+  --panel-frame: inset 0 0 0 6px var(--black), inset 0 0 0 8px var(--gold-dark), 8px 8px 0 rgba(0, 0, 0, 0.55);
+  --display: "Anton", "Impact", "Arial Narrow", sans-serif;
+  --body: "Barlow", "Helvetica Neue", Arial, sans-serif;
+  --shadow: 10px 10px 0 var(--black);
+}
+
 *,
 *::before,
 *::after {
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   margin: 0;
+  font-family: var(--body);
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  color: var(--white);
+  background-color: var(--red);
+  background-image:
+    radial-gradient(circle, rgba(0, 0, 0, 0.22) 0 2.5px, transparent 3px),
+    linear-gradient(135deg, #1c0203 0%, #4a0008 25%, #b50017 65%, #d6001c 100%);
+  background-size: 12px 12px, auto;
+  background-attachment: fixed;
+  overflow-x: hidden;
 }
 
 a {
+  color: inherit;
   text-decoration: none;
-  color: red;
-  font-weight: bold;
+}
+
+a:focus-visible {
+  outline: 3px solid var(--white);
+  outline-offset: 3px;
+}
+
+h1, h2, h3 {
+  font-family: var(--display);
+  font-weight: 400;
+  text-transform: uppercase;
+  line-height: 1.05;
+  margin: 0 0 1rem;
+}
+
+p {
+  margin: 0 0 1rem;
 }
 
 header {
@@ -22,14 +70,31 @@ header {
   align-items: center;
   justify-content: space-between;
   gap: 1.5rem;
-  padding: 1rem 2rem;
-  background-color: black;
+  padding: 0.9rem 2rem;
+  background: var(--black);
+  border-bottom: 5px solid var(--gold);
 }
 
-.logo img {
+header .logo {
   flex-shrink: 0;
-  width: 40px;
-  height: 40px;
+  display: flex;
+  align-items: center;
+  font-family: var(--display);
+  font-size: 1.6rem;
+  color: var(--white);
+}
+
+header .logo img {
+  display: block;
+  height: 3rem;
+  width: auto;
+  max-width: 100%;
+  transition: transform 0.15s, filter 0.2s;
+}
+
+header .logo img:hover {
+  transform: scale(1.1) rotate(-3deg);
+  filter: drop-shadow(2px 2px 0 var(--gold));
 }
 
 header .menu {
@@ -37,37 +102,420 @@ header .menu {
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 1.5rem;
+}
+
+header .menu a {
+  font-family: var(--display);
+  font-size: 1.25rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 0.2rem 0.9rem;
+  transform: skewX(-12deg);
+  transition: background 0.15s, color 0.15s, transform 0.15s;
+}
+
+header .menu a:hover,
+header .menu a[aria-current="page"] {
+  background: var(--gold-grad);
+  color: var(--black);
+  transform: skewX(-12deg) rotate(-2deg) scale(1.08);
+}
+
+main > section {
+  width: min(1100px, 100% - 2.5rem);
+  margin: 4rem auto;
+}
+
+main > section.banner {
+  width: 100%;
+  padding: 5rem 1.25rem 4rem;
+  text-align: center;
+  background-color: transparent;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.banner h1 {
+  display: inline-block;
+  font-size: clamp(3rem, 10vw, 8rem);
+  color: var(--gold-light);
+  background: var(--black);
+  padding: 0.1em 0.5em;
+  border: 4px solid var(--gold);
+  transform: skewX(-12deg) rotate(-3deg);
+  box-shadow: 15px 15px 0 var(--red), 15px 15px 0 4px var(--black);
+}
+
+.banner p {
+  display: inline-block;
+  background: var(--white);
+  color: var(--black);
+  padding: 0.5rem 1.5rem;
+  transform: rotate(1deg);
+  border: 3px solid var(--black);
+  max-width: 50ch;
+  margin-inline: auto;
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+main > section h2,
+.view-characters h2 {
+  display: inline-block;
+  font-size: clamp(2rem, 5vw, 3.4rem);
+  background: var(--gold-grad);
+  color: var(--black);
+  padding: 0.1em 0.6em;
+  transform: skewX(-10deg) rotate(-1.5deg);
+  box-shadow: 6px 6px 0 var(--black);
+}
+
+.what-is-p5,
+.atlus,
+.prologue,
+.battle-system,
+.other-games li,
+.character {
+  background: var(--black);
+  color: var(--white);
+  border: 3px solid var(--gold);
+  box-shadow: var(--panel-frame);
+  transform: rotate(-1deg);
+}
+
+.atlus {
+  transform: rotate(1deg);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   gap: 2rem;
+  background-image: radial-gradient(circle, rgba(255, 255, 255, 0.08) 0 1.5px, transparent 2px);
+  background-size: 12px 12px;
+}
+
+.atlus-text {
+  flex: 1;
+}
+
+.atlus-text h3 {
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+  color: var(--white);
+}
+
+.atlus-graphic {
+  flex: 0 0 160px;
+  height: 160px;
+  margin: 0;
+  background: rgba(255, 255, 255, 0.05);
+  border: 2px dashed var(--gold-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: rotate(3deg);
+}
+
+.what-is-p5,
+.atlus {
+  padding: 3rem clamp(1.5rem, 4vw, 3.8rem);
+}
+
+.what-is-p5 > p,
+.atlus > p {
+  max-width: 70ch;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+.prologue,
+.battle-system {
+  padding: 2rem;
+}
+
+.prologue {
+  transform: rotate(1deg);
+}
+
+.battle-system {
+  transform: rotate(-1deg);
+}
+
+.battle-system ul {
+  padding-left: 1.2rem;
+  margin: 0;
+}
+
+.battle-system li {
+  margin-bottom: 0.6rem;
+}
+
+.battle-system strong,
+.other-games h3 {
+  color: var(--gold);
+}
+
+.image {
+  margin: 0;
+}
+
+.image img {
+  display: block;
+  width: 100%;
+  min-height: 240px;
+  object-fit: cover;
+  background: var(--black);
+  border: 5px solid var(--gold);
+  box-shadow: var(--shadow);
+  transform: rotate(-2deg);
+}
+
+.battle-system + .image img,
+.row .image:last-child img {
+  transform: rotate(2deg);
+}
+
+.view-characters {
+  width: 100%;
+  max-width: none;
+  padding: 5.5rem 1.25rem;
+  text-align: center;
+  background: var(--black);
+  clip-path: polygon(0 10%, 100% 0, 100% 90%, 0 100%);
+}
+
+.view-characters h2 {
+  font-size: clamp(2.2rem, 7vw, 4.5rem);
+}
+
+.view-characters p {
+  font-size: 1.2rem;
+}
+
+.other-games ul {
+  list-style: none;
+  margin: 1rem 0 2.5rem;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.6rem;
+}
+
+.other-games li {
+  padding: 1.4rem;
+  transition: transform 0.15s, background 0.15s, color 0.15s, border-color 0.15s;
+}
+
+.other-games li:nth-child(odd) {
+  transform: rotate(-1.2deg);
+}
+
+.other-games li:nth-child(even) {
+  transform: rotate(1.2deg);
+}
+
+.other-games li:hover {
+  transform: rotate(0) translateY(-6px);
+  background: #1a1a1a;
+  color: var(--white);
+  border-color: var(--gold-light);
+}
+
+.other-games h3 {
+  font-size: 1.5rem;
+}
+
+.other-games li:hover h3 {
+  color: var(--gold-light);
+}
+
+.other-games p {
+  margin: 0;
+}
+
+.character-index ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.character-index a {
+  display: inline-block;
+  font-family: var(--display);
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  background: var(--black);
+  padding: 0.3rem 1.4rem;
+  border: 3px solid var(--gold);
+  color: var(--gold-light);
+  transform: skewX(-12deg);
+}
+
+.character-index a:hover {
+  background: var(--gold-grad);
+  color: var(--black);
+}
+
+.character-index {
+  width: min(1100px, 100% - 2.5rem);
+  margin: 3rem auto 0;
+}
+
+.character-group {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 2rem;
+}
+
+.character-group > h2 {
+  grid-column: 1 / -1;
+  justify-self: start;
+}
+
+.character {
+  padding: 1rem 1rem 1.2rem;
+  transition: transform 0.15s;
+}
+
+.character:nth-of-type(odd) {
+  transform: rotate(-1.5deg);
+}
+
+.character:nth-of-type(even) {
+  transform: rotate(1.5deg);
+}
+
+.character:hover {
+  transform: rotate(0) scale(1.04);
+}
+
+.character img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  background: #222;
+  margin-bottom: 1rem;
+}
+
+.character h3 {
+  font-size: 1.8rem;
+  margin-bottom: 0.4rem;
+  color: var(--gold-light);
+}
+
+.codename {
+  display: inline-block;
+  background: var(--gold-grad);
+  color: var(--black);
+  padding: 0.1rem 0.7rem;
+  font-weight: 700;
+  font-size: 0.9rem;
+  transform: skewX(-10deg);
+}
+
+.character p:last-child {
+  margin: 0;
+}
+
+.back-home {
+  text-align: center;
 }
 
 .footer {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 2rem;
+  margin-top: 4rem;
+  padding: 2.5rem 1.25rem;
   text-align: center;
+  background: var(--black);
+  border-top: 5px solid var(--gold);
 }
 
 .footer p {
   max-width: 60ch;
   margin: 0;
+  font-size: 0.95rem;
+}
+
+.action-banner {
+  text-align: center;
+  margin: 4rem auto;
+  width: 100%;
+}
+
+.p5-button {
+  display: inline-block;
+  font-family: var(--display);
+  font-size: 2rem; 
+  background: var(--gold-grad);
+  color: var(--black);
+  padding: 0.4em 1.2em;
+  border: 4px solid var(--black);
+  box-shadow: 8px 8px 0 var(--black);
+  transform: skewX(-12deg) rotate(-2deg);
+  text-transform: uppercase;
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+
+.p5-button:hover {
+  transform: skewX(-12deg) rotate(0deg) scale(1.05) translateY(-4px);
+  box-shadow: 12px 12px 0 var(--black);
+}
+
+.p5-button.alt {
+  font-size: 1.4rem;
 }
 
 @media (max-width: 800px) {
   header {
     flex-direction: column;
     align-items: flex-start;
-    padding: 1rem;
+    padding: 0.8rem 1rem;
   }
 
   header .menu {
     width: 100%;
     flex-wrap: wrap;
     justify-content: flex-start;
-    gap: 0.75rem 1.5rem;
+    gap: 0.4rem 1rem;
   }
 
-  .footer {
-    padding: 1.5rem 1rem;
+  .row {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .what-is-p5,
+  .atlus {
+    transform: none;
+  }
+
+  main > section {
+    margin: 3rem auto;
+  }
+  
+  .atlus {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+    scroll-behavior: auto !important;
   }
 }

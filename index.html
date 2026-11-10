@@ -13,8 +13,9 @@
         <a class="logo" href="index.html">
             <img src="images/phantom-thieves-logo.png" alt="Phantom Thieves logo">
         </a>
+
         <nav class="menu" aria-label="Main">
-            <a href="index.html">Home</a>
+            <a href="index.html" aria-current="page">Home</a>
             <a href="characters.html">Characters</a>
             <a href="about-atlus.html">About ATLUS</a>
             <a href="other-games.html">Other Games</a>
@@ -45,8 +46,8 @@
                 <p>Soon you discover a mysterious app that takes you to a world warped by other people's desires. There,
                     you awaken your Persona and begin living a double life.</p>
             </article>
-            <figure class="image">
-                <img src="img/prologue.jpg" alt="Joker in the Metaverse">
+            <figure id="prologue-image" class="image">
+                <img src="images/persona5-royal-titol.png" alt="The Phantom Thieves">
             </figure>
         </section>
 
@@ -67,23 +68,22 @@
             </article>
         </section>
 
-        <section class="view-characters" id="characters">
-            <h2>
-                <a href='characters.html'>Meet the Characters</a>
-            </h2>
+        <section class="action-banner" id="characters">
+            <a href="characters.html" class="p5-button">Meet the Characters &#10148;</a>
         </section>
 
         <section class="atlus" id="atlus">
-            <h3>Want to know about ATLUS, the creator of Persona 5 Royal?</h3>
-            <a href="about-atlus.html">Then click here!</a>
+            <div class="atlus-text">
+                <h3>Want to know about ATLUS, the creator of Persona 5 Royal?</h3>
+                <a href="about-atlus.html" class="p5-button alt">Then click here! &#10148;</a>
+            </div>
+            <figure class="atlus-graphic">
+            </figure>
         </section>
 
-        <section class="other-games" id="other-games">
-            <h2>
-                <a href='other-games.html'>View Other Games made by ATLUS</a>
-            </h2>
+        <section class="action-banner" id="other-games-btn">
+            <a href="other-games.html" class="p5-button">View Other Games made by ATLUS &#10148;</a>
         </section>
-
     </main>
 
     <footer class="footer" id="contact">
