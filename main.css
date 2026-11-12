@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Anton&family=Barlow:wght@400;500;700&display=swap");
 
+/* --> Variables <-- */
 :root {
   --red: #d6001c;
   --red-bright: #ff3b4f;
@@ -15,6 +16,7 @@
   --shadow: 10px 10px 0 var(--black);
 }
 
+/* --> Global and general style <-- */
 *,
 *::before,
 *::after {
@@ -28,8 +30,8 @@ html {
 body {
   margin: 0;
   font-family: var(--body);
-  font-size: 1.0625rem;
-  line-height: 1.6;
+  font-size: clamp(1.0625rem, 0.95rem + 0.3vw, 1.25rem);
+  line-height: 1.65;
   color: var(--white);
   background-color: var(--red);
   background-image:
@@ -64,6 +66,12 @@ p {
   margin: 0 0 1rem;
 }
 
+.menu-toggle,
+.menu-icon {
+  display: none;
+}
+
+/* --> Header and Menu <-- */
 header {
   position: sticky;
   top: 0;
@@ -124,17 +132,52 @@ header .menu a[aria-current="page"] {
   transform: skewX(-12deg) rotate(-2deg) scale(1.08);
 }
 
+/* --> Layout Structure <-- */
 main>section {
-  width: min(1100px, 100% - 2.5rem);
+  width: min(1400px, 100% - 3rem);
   margin: 4rem auto;
 }
 
+.panel {
+  background: var(--black);
+  color: var(--white);
+  border: 3px solid var(--gold);
+  box-shadow: var(--panel-frame);
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+.image {
+  margin: 0;
+}
+
+.image img {
+  display: block;
+  width: 100%;
+  min-height: 240px;
+  object-fit: cover;
+  background: var(--black);
+  border: 5px solid var(--gold);
+  box-shadow: var(--shadow);
+  transform: rotate(-2deg);
+}
+
+.game-features+.image img,
+.row .image:last-child img {
+  transform: rotate(2deg);
+}
+
+/* --> Banners and Buttons <-- */
 main>section.banner {
   width: 100%;
   padding: 5rem 1.25rem 4rem;
   text-align: center;
   background-color: transparent;
-
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -164,8 +207,7 @@ main>section.banner {
   font-weight: 500;
 }
 
-main>section h2,
-.view-characters h2 {
+main>section h2 {
   display: inline-block;
   font-size: clamp(2rem, 5vw, 3.4rem);
   background: var(--gold-grad);
@@ -173,319 +215,6 @@ main>section h2,
   padding: 0.1em 0.6em;
   transform: skewX(-10deg) rotate(-1.5deg);
   box-shadow: 6px 6px 0 var(--black);
-}
-
-.what-is-p5,
-.atlus,
-.prologue,
-.game-features,
-.other-games li,
-.character {
-  background: var(--black);
-  color: var(--white);
-  border: 3px solid var(--gold);
-  box-shadow: var(--panel-frame);
-  transform: rotate(-1deg);
-}
-
-.atlus {
-  transform: rotate(1deg);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 2rem;
-  background-image: radial-gradient(circle, rgba(255, 255, 255, 0.08) 0 1.5px, transparent 2px);
-  background-size: 12px 12px;
-}
-
-.atlus-text {
-  flex: 1;
-}
-
-.atlus-text h3 {
-  font-size: 1.8rem;
-  margin-bottom: 1.5rem;
-  color: var(--white);
-}
-
-.atlus-graphic {
-  flex: 0 0 160px;
-  height: 160px;
-  margin: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.atlus-graphic img {
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: contain;
-}
-
-.what-is-p5,
-.atlus {
-  padding: 3rem clamp(1.5rem, 4vw, 3.8rem);
-}
-
-.what-is-p5 {
-  text-align: center;
-}
-
-.what-is-p5>p {
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.row {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 3rem;
-  align-items: center;
-}
-
-.prologue,
-.game-features {
-  padding: 2rem;
-}
-
-.prologue {
-  transform: rotate(1deg);
-}
-
-.game-features {
-  transform: rotate(-1deg);
-}
-
-.game-features ul {
-  padding-left: 1.2rem;
-  margin: 0;
-}
-
-.game-features li {
-  margin-bottom: 0.6rem;
-}
-
-.game-features strong,
-.other-games h3 {
-  color: var(--gold);
-}
-
-.image {
-  margin: 0;
-}
-
-.image img {
-  display: block;
-  width: 100%;
-  min-height: 240px;
-  object-fit: cover;
-  background: var(--black);
-  border: 5px solid var(--gold);
-  box-shadow: var(--shadow);
-  transform: rotate(-2deg);
-}
-
-.game-features+.image img,
-.row .image:last-child img {
-  transform: rotate(2deg);
-}
-
-.view-characters {
-  width: 100%;
-  max-width: none;
-  padding: 5.5rem 1.25rem;
-  text-align: center;
-  background: var(--black);
-  clip-path: polygon(0 10%, 100% 0, 100% 90%, 0 100%);
-}
-
-.view-characters h2 {
-  font-size: clamp(2.2rem, 7vw, 4.5rem);
-}
-
-.view-characters p {
-  font-size: 1.2rem;
-}
-
-.other-games ul {
-  list-style: none;
-  margin: 1rem 0 2.5rem;
-  padding: 0;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(min(340px, 100%), 1fr));
-  gap: 1.6rem;
-}
-
-.other-games li {
-  display: grid;
-  grid-template-columns: 150px 1fr;
-  gap: 1.3rem;
-  align-items: center;
-  padding: 1.4rem;
-  transition: transform 0.15s, background 0.15s, color 0.15s, border-color 0.15s;
-}
-
-.other-games li:nth-child(odd) {
-  transform: rotate(-1.2deg);
-}
-
-.other-games li:nth-child(even) {
-  transform: rotate(1.2deg);
-}
-
-.other-games li:hover {
-  transform: rotate(0) translateY(-6px);
-  background: #1a1a1a;
-  color: var(--white);
-  border-color: var(--gold-light);
-}
-
-.other-games h3 {
-  font-size: 1.5rem;
-}
-
-.other-games li:hover h3 {
-  color: var(--gold-light);
-}
-
-.other-games p {
-  margin: 0;
-}
-
-.other-games li img {
-  display: block;
-  width: 100%;
-  height: auto;
-  border: 3px solid var(--gold);
-  box-shadow: 5px 5px 0 var(--black);
-  transition: border-color 0.15s;
-}
-
-.other-games li:hover img {
-  border-color: var(--gold-light);
-}
-
-.game-info h3 {
-  margin-bottom: 0.5rem;
-}
-
-@media (max-width: 480px) {
-  .other-games li {
-    grid-template-columns: 100px 1fr;
-    gap: 1rem;
-    padding: 1.1rem;
-  }
-}
-
-.character-index ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 1rem;
-}
-
-.character-index a {
-  display: inline-block;
-  font-family: var(--display);
-  font-size: 1.2rem;
-  text-transform: uppercase;
-  background: var(--black);
-  padding: 0.3rem 1.4rem;
-  border: 3px solid var(--gold);
-  color: var(--gold-light);
-  transform: skewX(-12deg);
-}
-
-.character-index a:hover {
-  background: var(--gold-grad);
-  color: var(--black);
-}
-
-.character-index {
-  width: min(1100px, 100% - 2.5rem);
-  margin: 3rem auto 0;
-}
-
-.character-group {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
-  gap: 2rem;
-}
-
-.character-group>h2 {
-  grid-column: 1 / -1;
-  justify-self: start;
-}
-
-.character {
-  padding: 1rem 1rem 1.2rem;
-  transition: transform 0.15s;
-}
-
-.character:nth-of-type(odd) {
-  transform: rotate(-1.5deg);
-}
-
-.character:nth-of-type(even) {
-  transform: rotate(1.5deg);
-}
-
-.character:hover {
-  transform: rotate(0) scale(1.04);
-}
-
-.character img {
-  display: block;
-  width: 100%;
-  aspect-ratio: 3 / 4;
-  object-fit: cover;
-  background: #222;
-  margin-bottom: 1rem;
-}
-
-.character h3 {
-  font-size: 1.8rem;
-  margin-bottom: 0.4rem;
-  color: var(--gold-light);
-}
-
-.codename {
-  display: inline-block;
-  background: var(--gold-grad);
-  color: var(--black);
-  padding: 0.1rem 0.7rem;
-  font-weight: 700;
-  font-size: 0.9rem;
-  transform: skewX(-10deg);
-}
-
-.character p:last-child {
-  margin: 0;
-}
-
-.back-home {
-  text-align: center;
-}
-
-.footer {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 4rem;
-  padding: 2.5rem 1.25rem;
-  text-align: center;
-  background: var(--black);
-  border-top: 5px solid var(--gold);
-}
-
-.footer p {
-  max-width: 60ch;
-  margin: 0;
-  font-size: 0.95rem;
 }
 
 .action-banner {
@@ -517,18 +246,358 @@ main>section h2,
   font-size: 1.4rem;
 }
 
+/* --> Home and About Atlus <-- */
+.what-is-p5,
+.who-is-atlus,
+.atlus-history,
+.atlus-style {
+  padding: 3rem clamp(1.5rem, 4vw, 3.8rem);
+  text-align: center;
+}
+
+.what-is-p5>p,
+.atlus-style>p {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* --> Home: Prologue and Game Features <-- */
+.prologue,
+.game-features {
+  padding: 2rem;
+}
+
+.prologue {
+  transform: rotate(1deg);
+}
+
+.game-features {
+  transform: rotate(-1deg);
+}
+
+.game-features ul {
+  padding-left: 1.2rem;
+  margin: 0;
+}
+
+.game-features li {
+  margin-bottom: 0.6rem;
+}
+
+.game-features strong {
+  color: var(--gold);
+}
+
+/* --> Home: Atlus Teaser <-- */
+.atlus-teaser {
+  padding: 3rem clamp(1.5rem, 4vw, 3.8rem);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.atlus-teaser-text {
+  flex: 1;
+}
+
+.atlus-teaser-text h3 {
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+  color: var(--white);
+}
+
+.atlus-teaser-graphic {
+  flex: 0 0 160px;
+  height: 160px;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.atlus-teaser-graphic img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+/* --> About Atlus: Series List <-- */
+.atlus-series {
+  text-align: center;
+}
+
+.atlus-series ul {
+  list-style: none;
+  margin: 1rem 0 2.5rem;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5rem;
+}
+
+.atlus-series li {
+  padding: 2.5rem 2rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+  transition: transform 0.15s, background 0.15s, color 0.15s, border-color 0.15s;
+}
+
+.atlus-series li:nth-child(odd) {
+  transform: rotate(-1.5deg);
+}
+
+.atlus-series li:nth-child(even) {
+  transform: rotate(1.5deg);
+}
+
+.atlus-series li:hover {
+  transform: rotate(0) scale(1.03);
+  background: #1a1a1a;
+  border-color: var(--gold-light);
+}
+
+.atlus-series h3 {
+  font-size: 2.8rem;
+  color: var(--gold);
+  margin: 0;
+  transition: color 0.15s;
+}
+
+.atlus-series li:hover h3 {
+  color: var(--gold-light);
+}
+
+.atlus-series p {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+/* --> Characters <-- */
+main>section.character-group {
+  width: min(1500px, 100% - 3rem);
+}
+
+.character-group {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 2.5rem 2rem;
+}
+
+.character-group>h2 {
+  grid-column: 1 / -1;
+  justify-self: center;
+}
+
+.character {
+  grid-column: span 2;
+  padding: 1.3rem 1.3rem 1.5rem;
+  transition: transform 0.15s;
+}
+
+.character:last-of-type:nth-of-type(3n + 1) {
+  grid-column: 3 / span 2;
+}
+
+.character:nth-last-of-type(2):nth-of-type(3n + 1) {
+  grid-column: 2 / span 2;
+}
+
+.character:nth-of-type(odd) {
+  transform: rotate(-1.5deg);
+}
+
+.character:nth-of-type(even) {
+  transform: rotate(1.5deg);
+}
+
+.character:hover {
+  transform: rotate(0) scale(1.04);
+}
+
+.character img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: contain;
+  object-position: center;
+  padding: 0.6rem;
+  background: radial-gradient(circle at 50% 40%, #6b1018 0%, #1a0608 75%);
+  border: 2px solid var(--gold-dark);
+  margin-bottom: 1rem;
+}
+
+.character h3 {
+  font-size: 2.2rem;
+  margin-bottom: 0.4rem;
+  color: var(--gold-light);
+}
+
+.codename {
+  display: inline-block;
+  background: var(--gold-grad);
+  color: var(--black);
+  padding: 0.1rem 0.7rem;
+  font-weight: 700;
+  font-size: 1rem;
+  transform: skewX(-10deg);
+}
+
+.character p {
+  font-size: 1.05rem;
+  line-height: 1.65;
+}
+
+.character p:last-child {
+  margin: 0;
+}
+
+/* --> Other Games <-- */
+.other-games {
+  text-align: center;
+}
+
+.other-games h3 {
+  color: var(--gold);
+}
+
+.other-games ul {
+  list-style: none;
+  margin: 2rem 0 4rem;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 3rem;
+}
+
+.other-games li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 650px;
+  gap: 1.5rem;
+  padding: 2.5rem;
+  text-align: center;
+  transition: transform 0.15s, background 0.15s, color 0.15s, border-color 0.15s;
+}
+
+.other-games li:nth-child(odd) {
+  transform: rotate(-1.2deg);
+}
+
+.other-games li:nth-child(even) {
+  transform: rotate(1.2deg);
+}
+
+.other-games li:hover {
+  transform: rotate(0) translateY(-6px) scale(1.02);
+  background: #1a1a1a;
+  color: var(--white);
+  border-color: var(--gold-light);
+}
+
+.other-games h3 {
+  font-size: 2.2rem;
+  margin: 0;
+  transition: color 0.15s;
+}
+
+.other-games li:hover h3 {
+  color: var(--gold-light);
+}
+
+.other-games p {
+  margin: 0;
+  font-size: 1.15rem;
+}
+
+.other-games li img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border: 3px solid var(--gold);
+  box-shadow: 8px 8px 0 var(--black);
+  transition: border-color 0.15s;
+}
+
+.other-games li:hover img {
+  border-color: var(--gold-light);
+}
+
+.game-info h3 {
+  margin-bottom: 0.5rem;
+}
+
+/* --> Footer <-- */
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 4rem;
+  padding: 2.5rem 1.25rem;
+  text-align: center;
+  background: var(--black);
+  border-top: 5px solid var(--gold);
+}
+
+.footer p {
+  max-width: 60ch;
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+/* --> Media queries <-- */
+@media (max-width: 900px) {
+  .character-group {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .character,
+  .character:last-of-type:nth-of-type(3n + 1),
+  .character:nth-last-of-type(2):nth-of-type(3n + 1) {
+    grid-column: auto;
+  }
+
+  .character:last-of-type:nth-of-type(odd) {
+    grid-column: 1 / -1;
+    justify-self: center;
+    width: calc(50% - 1rem);
+  }
+}
+
 @media (max-width: 800px) {
   header {
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 0.8rem 1rem;
+    flex-wrap: wrap;
+    padding: 0.8rem 1.5rem;
+  }
+  
+  .menu-icon {
+    display: block;
+    font-size: 2.5rem;
+    color: var(--gold);
+    cursor: pointer;
+    user-select: none;
+    line-height: 1;
   }
 
   header .menu {
+    display: none; 
     width: 100%;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-    gap: 0.4rem 1rem;
+    flex-direction: column;
+    padding: 1.5rem 0 0.5rem;
+    gap: 1rem;
+  }
+  
+  .menu-toggle:checked ~ .menu {
+    display: flex;
   }
 
   .row {
@@ -544,8 +613,18 @@ main>section h2,
     order: 2;
   }
 
+  .atlus-series ul {
+    grid-template-columns: 1fr;
+  }
+
   .what-is-p5,
-  .atlus {
+  .prologue,
+  .game-features,
+  .who-is-atlus,
+  .atlus-history,
+  .atlus-style,
+  .atlus-teaser,
+  .atlus-series li {
     transform: none;
   }
 
@@ -553,9 +632,29 @@ main>section h2,
     margin: 3rem auto;
   }
 
-  .atlus {
+  .atlus-teaser {
     flex-direction: column;
     text-align: center;
+  }
+}
+
+@media (max-width: 560px) {
+  .character-group {
+    grid-template-columns: 1fr;
+  }
+
+  .character:last-of-type:nth-of-type(odd) {
+    grid-column: auto;
+    justify-self: stretch;
+    width: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .other-games li {
+    gap: 1rem;
+    padding: 1.5rem;
+    max-width: 100%;
   }
 }
 

@@ -13,6 +13,10 @@
         <a class="logo" href="index.html">
             <img src="images/phantom-thieves-logo.png" alt="Phantom Thieves logo">
         </a>
+        
+        <input type="checkbox" id="menu-toggle" class="menu-toggle">
+        <label for="menu-toggle" class="menu-icon">&#9776;</label>
+
         <nav class="menu" aria-label="Main">
             <a href="index.html">Home</a>
             <a href="characters.html" aria-current="page">Characters</a>
@@ -24,131 +28,115 @@
     <main>
         <section class="banner">
             <h1>Characters</h1>
-            <p>Meet the Phantom Thieves and the people who shape their story. This page avoids major spoilers.</p>
+            <p>Meet the Phantom Thieves. This page avoids major spoilers.</p>
         </section>
 
-        <nav class="character-index" aria-label="Characters on this page">
-            <ul>
-                <li><a href="#phantom-thieves">Phantom Thieves</a></li>
-                <li><a href="#allies">Allies and Supporting Cast</a></li>
-            </ul>
-        </nav>
-
-        <section class="character-group" id="phantom-thieves">
+        <section class="character-group">
             <h2>The Phantom Thieves of Hearts</h2>
 
-            <article class="character">
+            <article class="character panel">
                 <img src="images/protagonist.png" alt="Protagonist">
                 <h3>Protagonist</h3>
                 <p class="codename">Persona: Arsène</p>
-                <p>The silent protagonist and leader of the team. A transfer student with a record, he can wield
-                    multiple Personas and is the heart of the group.</p>
+                <p>A second-year high school student who moved in the spring and transferred to Shujin Academy. One day,
+                    with his back against the wall, his powers as a Persona-user awakens. He lives as a normal student
+                    in the day as a tenant of a café owned by a family friend. After school, he turns into a Phantom
+                    Thief who upheaves the city.</p>
             </article>
 
-            <article class="character">
+            <article class="character panel">
                 <img src="images/ryuji.png" alt="Ryuji Sakamoto">
                 <h3>Ryuji Sakamoto</h3>
                 <p class="codename">Persona: Captain Kidd</p>
-                <p>Joker's first friend at Shujin Academy. Loud, loyal and impulsive, he fights with blunt weapons and
-                    heavy physical attacks.</p>
+                <p>A fellow second-year student at Shujin Academy. Although his words and actions can be crude, he has a
+                    caring, dependable, and outgoing personality. Due to an incident, he is labeled as a delinquent and
+                    fellow students begin distancing themselves from him. After befriending the recently transferred
+                    protagonist, he awakens his abilities as a Persona-user.</p>
             </article>
 
-            <article class="character" id="mona">
+            <article class="character panel">
                 <img src="images/morgana.png" alt="Morgana">
                 <h3>Morgana</h3>
                 <p class="codename">Persona: Zorro</p>
-                <p>A mysterious cat-like creature who guides the team through the Metaverse. Proud and clever, he
-                    specializes in wind magic and healing.</p>
+                <p>A mysterious cat-like creature that the protagonist and Ryuji encounter in the Metaverse, he decides
+                    to accompany them shortly after. He can communicate with humans and claims to be able to transform
+                    into various objects, yet many things about him remain shrouded in mystery. Although he can be
+                    aggressive at times, he’s also incredibly selfless and supports his teammates. He often exclaims,
+                    “I’m not a cat!”</p>
             </article>
 
-            <article class="character" id="panther">
+            <article class="character panel">
                 <img src="images/ann.png" alt="Ann Takamaki">
                 <h3>Ann Takamaki</h3>
                 <p class="codename">Persona: Carmen</p>
-                <p>A fashion model and Joker's classmate. Kind and determined, she uses fire magic and whips.</p>
+                <p>A fellow second-year student at Shujin Academy, and a classmate to the protagonist. She’s an
+                    attractive girl who is one quarter American and models on the side. She’s free-spirited and has an
+                    honest personality, but due to her striking appearance, she’s isolated from everyone around her.
+                    After befriending the protagonist, an incident acts as a catalyst to awaken her abilities as a
+                    Persona-user.</p>
             </article>
 
-            <article class="character" id="fox">
+            <article class="character panel">
                 <img src="images/yusuke.png" alt="Yusuke Kitagawa">
                 <h3>Yusuke Kitagawa</h3>
                 <p class="codename">Persona: Goemon</p>
-                <p>A gifted art student with an unusual way of seeing the world. He fights with a katana and ice magic.
-                </p>
+                <p>A second-year art student at Kosei High School who specializes in painting. His attractive appearance
+                    draws attention, but his unique artistic sensibilities often lead to him being out of touch with
+                    others. He‘s a live-in apprentice for Ichiryusei Madarame, a master artist. A turn of events leads
+                    him to befriend the protagonist and awaken his abilities as a Persona-user.</p>
             </article>
 
-            <article class="character" id="queen">
+            <article class="character panel">
                 <img src="images/makoto.png" alt="Makoto Niijima">
                 <h3>Makoto Niijima</h3>
                 <p class="codename">Persona: Johanna</p>
-                <p>The student council president. Disciplined and sharp, she is the team's strategist and fights with
-                    nuclear magic and a gun.</p>
+                <p>A third-year student attending Shujin Academy. She is intelligent, well-mannered, and serves as the
+                    student body president. Calm and collected, she has a strong sense of responsibility and is quick to
+                    take action, but due to her straight-forward personality she can also be quite stubborn. A series of
+                    events trigger her powers as a Persona-user before she joins the Phantom Thieves. She acts as the
+                    brains of the team.</p>
             </article>
 
-            <article class="character" id="oracle">
+            <article class="character panel">
                 <img src="images/futaba.png" alt="Futaba Sakura">
-                <h3>Oracle</h3>
+                <h3>Futaba Sakura</h3>
                 <p class="codename">Persona: Prometheus</p>
-                <p>A genius hacker who provides navigation and support from the back line. She scans enemies and reveals
-                    their weaknesses.</p>
+                <p>A girl one year younger than the protagonist. She boasts an incredibly mathematical brain along with
+                    a prodigious talent for computer programming, but struggles with social communication. She lives a
+                    cloistered life trapped in her own home. She encounters the protagonists one day and awakens her
+                    abilities as a Persona-user.</p>
             </article>
 
-            <article class="character" id="noir">
+            <article class="character panel">
                 <img src="images/haru.png" alt="Haru Okumura">
                 <h3>Haru Okumura</h3>
                 <p class="codename">Persona: Milady</p>
-                <p>A gentle, elegant student with a strong will. She fights with an axe and a gun, and is skilled at
-                    inflicting status effects.</p>
+                <p>A third-year student at Shujin Academy, and the daughter of the CEO of one of the largest food
+                    companies in the country. Her soft appearance and docile personality present someone capable of
+                    maintaining positive relationships, but due to the environment she grew up in, she struggles to find
+                    value in building meaningful relationships, often avoiding them altogether. What will lead her to
+                    awakening her abilities as a Persona-user...?</p>
             </article>
 
-            <article class="character" id="violet">
+            <article class="character panel">
                 <img src="images/kasumi.png" alt="Kasumi Yoshizawa">
                 <h3>Kasumi Yoshizawa</h3>
                 <p class="codename">Persona: Cendrillon</p>
-                <p>A cheerful gymnast who joins the team in the Royal edition. Her role is closely tied to the new story
-                    content.</p>
+                <p>A beautiful girl who transfers to Shujin Academy the same spring as the protagonist. She’s a talented
+                    gymnast since middle schooland Shujin Academy holds high hopes for her because of her excellent
+                    athletic records.</p>
             </article>
 
-            <article class="character" id="crow">
+            <article class="character panel">
                 <img src="images/goro.png" alt="Goro Akechi">
                 <h3>Goro Akechi</h3>
                 <p class="codename">Persona: Robin Hood</p>
-                <p>A famous teenage detective who appears in the media as a rival to the Phantom Thieves. His role is
-                    best discovered while playing.</p>
-            </article>
-        </section>
-
-        <section class="character-group" id="allies">
-            <h2>Allies and Supporting Cast</h2>
-
-            <article class="character" id="sojiro">
-                <img src="images/sojiro.png" alt="Sojiro Sakura">
-                <h3>Sojiro Sakura</h3>
-                <p>The owner of Café LeBlanc and Joker's guardian. Gruff on the outside, he becomes a father figure over
-                    time.</p>
-            </article>
-
-            <article class="character" id="kawakami">
-                <img src="images/kawakami.png" alt="Sadayo Kawakami">
-                <h3>Sadayo Kawakami</h3>
-                <p>Joker's homeroom teacher at Shujin Academy, who hides a secret job to make ends meet.</p>
-            </article>
-
-            <article class="character" id="igor">
-                <img src="images/igor.png" alt="Igor">
-                <h3>Igor</h3>
-                <p>The strange master of the Velvet Room, who guides Joker in the use of his Personas.</p>
-            </article>
-
-            <article class="character" id="lavenza">
-                <img src="images/lavenza.png" alt="Lavenza">
-                <h3>Lavenza</h3>
-                <p>An assistant in the Velvet Room who helps Joker fuse and manage his Personas.</p>
-            </article>
-
-            <article class="character" id="maruki">
-                <img src="images/maruki.png" alt="Takuto Maruki">
-                <h3>Takuto Maruki</h3>
-                <p>A school counselor and new character in the Royal edition, who offers help to troubled students.</p>
+                <p>A third-year high school student who is also a professional detective. With a track record of solving
+                    numerous crimes, he maintains a respectable reputation even among law enforcement officials. His
+                    sharp intellect, sociable personality, and good looks attracts the attention of many. He frequently
+                    appears on media, often touted as the “The Second Coming of the Detective Prince.” Although he is
+                    formally in the position of chasing after the Phantom Thieves, he eventually works alongside them.
+                </p>
             </article>
         </section>
 
@@ -157,7 +145,7 @@
         </section>
     </main>
 
-    <footer class="footer" id="contact">
+    <footer class="footer">
         <p>Fan-made website, created with love. Persona 5 Royal and all of its characters are the property of ATLUS and
             SEGA. This site is not affiliated with them.</p>
     </footer>
